@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body{
+  font-family: "Roboto", sans-serif;
+}
+
+.muso{
+  font-family: "MuseoModerno", sans-serif;
+}
