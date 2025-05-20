@@ -14,14 +14,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: HomePage
+                Component: HomePage,
+                loader: () => fetch('http://localhost:3000/tasks/recent')
             },
             {
                 path: 'add-task',
                 Component: AddTask,
             },
             {
-                path: 'all-task',
+                path: 'all-tasks',
                 Component: AllTaskPage
             },
             {
@@ -29,7 +30,7 @@ export const router = createBrowserRouter([
                 Component: TaskDetails
             },
             {
-                path: 'my-task',
+                path: 'my-tasks',
                 Component: MyTaskPage,
             },
             {
