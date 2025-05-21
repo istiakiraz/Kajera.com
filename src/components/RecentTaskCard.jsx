@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const RecentTaskCard = ({ task }) => {
   return (
     <div>
-      <div className="card bg-[#d6edeb]/50 w-96 border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
+      <div className="card bg-[#d6edeb]/50 lg:w-96 border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
         <figure>
           <img src={task.photo} alt={task.title} />
         </figure>

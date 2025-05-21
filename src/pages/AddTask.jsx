@@ -75,7 +75,7 @@ const AddTask = () => {
 
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1 justify-center items-center md:grid-cols-2"
+              className="grid grid-cols-1  md:grid-cols-2"
             >
               <div>
                 <fieldset className="fieldset rounded-box md:w-xs  p-4">
@@ -179,9 +179,9 @@ const AddTask = () => {
 
               <button
                 type="submit"
-                className="btn col-span-full w-full md:w-[820px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
+                className="btn col-span-full flex w-full md:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
               >
-                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="relative">Add Task</span>
               </button>
             </form>

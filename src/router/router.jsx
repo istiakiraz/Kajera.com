@@ -6,6 +6,8 @@ import AllTaskPage from "../pages/AllTaskPage";
 import TaskDetails from "../pages/TaskDetails";
 import MyTaskPage from "../pages/MyTaskPage";
 import EditMyTask from "../pages/EditMyTask";
+import SIgnIn from "../pages/SIgnIn";
+import SignUp from "../pages/SignUp";
 
 export const router = createBrowserRouter([
     {
@@ -39,5 +41,13 @@ export const router = createBrowserRouter([
                 Component: EditMyTask
             }
         ]
+    },
+    {
+        path: 'sign-in',
+        Component: SIgnIn,
+    },
+    {
+        path: 'sign-up',
+        Component: SignUp
     }
 ])
