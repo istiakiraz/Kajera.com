@@ -8,7 +8,6 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const AddTask = () => {
   const [dob, setDob] = useState(null);
-
   const {user} = use(AuthContext)
 
   const handleSubmit = (e) => {
@@ -122,15 +121,16 @@ const AddTask = () => {
                     className="border border-gray-300 placeholder:text-sm bg-white md:w-96 w-80 px-3 py-2 rounded"
                   />
 
-                  {/* budget input */}
-                  <label className=" font-bold label">Budget</label>
-                  <input
-                    type="number"
+                   {/* Description input */}
+                  <label className=" font-bold  label">Description</label>
+                  <textarea
                     required
-                    name="budget"
-                    className="input mb-2 md:w-96"
-                    placeholder="Enter your task budget"
+                    name="description"
+                    className="textarea textarea-bordered mb-2 h-28 text-start md:w-96 w-80"
+                    placeholder="Enter task description"
                   />
+
+                
                 </fieldset>
               </div>
 
@@ -159,14 +159,14 @@ const AddTask = () => {
                      readOnly
                   />
 
-                  {/* Description input */}
-                  <label className=" font-bold label">Description</label>
+                    {/* budget input */}
+                  <label className=" font-bold label">Budget</label>
                   <input
+                    type="number"
                     required
-                    type="text"
-                    name="description"
+                    name="budget"
                     className="input mb-2 md:w-96"
-                    placeholder="Enter task Description"
+                    placeholder="Enter your task budget"
                   />
 
                   {/* Photo input */}

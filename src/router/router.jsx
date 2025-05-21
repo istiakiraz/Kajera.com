@@ -40,8 +40,9 @@ export const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:3000/my-task/${params.email}`)
             },
             {
-                path: 'edit-task',
-                Component: EditMyTask
+                path: '/edit-task/:id',
+                Component: EditMyTask,
+                loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
             }
         ]
     },

@@ -1,7 +1,41 @@
 import React from "react";
 import { MdDeleteForever, MdOutlineSystemUpdate } from "react-icons/md";
+import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const MyTaskCard = ({ task }) => {
+const MyTaskCard = ({ task, setMyTask, myTask }) => {
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Delete task by database
+        fetch(`http://localhost:3000/tasks/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your task has been deleted.",
+                icon: "success",
+              });
+            //   remove the task form the state 
+            const remainingTask = myTask.filter(tas=> tas._id !== id)
+            setMyTask(remainingTask);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <>
       {/* Table body */}
@@ -35,12 +69,19 @@ const MyTaskCard = ({ task }) => {
             </span>
           </td>
 
+          <td className="pl-9 "><span className="bg-[#548b5a]/20 p-1 px-2 rounded-full text-xl">{task.bid}</span></td>
+
           <td className="flex items-center justify-center py-6 gap-1 ">
+            <Link to={`/edit-task/${task._id}`}>
             <button className="btn btn-outline flex items-center gap-1 hover:text-white hover:bg-green-500 btn-xs">
               <MdOutlineSystemUpdate />
               Update
             </button>
-            <button className="btn btn-outline   flex items-center gap-1 hover:text-white hover:bg-red-500 btn-xs">
+            </Link>
+            <button
+              onClick={() => handleDelete(task._id)}
+              className="btn btn-outline   flex items-center gap-1 hover:text-white hover:bg-red-500 btn-xs"
+            >
               <MdDeleteForever size={15} /> Delete
             </button>
           </td>

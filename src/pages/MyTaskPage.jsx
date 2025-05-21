@@ -1,24 +1,25 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
-import MyTaskCard from '../components/MyTaskCard';
+import MyTaskCard from "../components/MyTaskCard";
 import { AuthContext } from "../provider/AuthProvider";
 
 const MyTaskPage = () => {
+  const { user } = use(AuthContext);
 
-    const {user} = use(AuthContext)
+  const initialTask = useLoaderData();
+  const params = useParams();
 
-  const myTask = useLoaderData();
-  const params = useParams()
-  console.log(params.email);
+  const [myTask, setMyTask] = useState(initialTask);
 
-  console.log(user?.email);
+  //   console.log(params.email);
+  //   console.log(user?.email);
 
-  if(params.email !== user?.email ){
-    return <p>error this page</p>
+  if (params.email !== user?.email) {
+    return <p>error this page</p>;
   }
 
-  if(myTask.length<1){
-    return <p>you have no data </p>
+  if (myTask.length < 1) {
+    return <p>you have no data </p>;
   }
 
   return (
@@ -37,18 +38,20 @@ const MyTaskPage = () => {
                 <th className="whitespace-nowrap">Description</th>
                 <th className="whitespace-nowrap">Budget</th>
                 <th className="whitespace-nowrap">Deadline</th>
+                <th className="whitespace-nowrap">Total Bids</th>
                 <th className="whitespace-nowrap">Actions</th>
+                
               </tr>
             </thead>
 
-            {myTask.map((task) => 
-
-                    <MyTaskCard  task={task} key={task._id} >
-
-                    </MyTaskCard>
-
-            
-            )}
+            {myTask.map((task) => (
+              <MyTaskCard
+                myTask={myTask}
+                setMyTask={setMyTask}
+                task={task}
+                key={task._id}
+              ></MyTaskCard>
+            ))}
           </table>
         </div>
       </div>
