@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const [showPass, setShowPass] = useState(false);
 
-  const {createUser} = use(AuthContext)
+  const {createUser, setUser, updateUser } = use(AuthContext)
 
 //   const { createUser, setLogIn, updateUser } = use(AuthContext);
 
@@ -42,7 +42,14 @@ const SignUp = () => {
 
     createUser(email, password)
         .then((result)=>{
-            console.log(result.user);
+            const user = result.user;
+            updateUser({ displayName: name, photoURL: photo })
+            .then(()=>{
+                setUser({ ...user, displayName: name, photoURL: photo })
+            }).catch(error=>{
+                console.log(error);
+                setUser(user)
+            })         
         }).catch((error)=>{
             console.log(error.message);
         })

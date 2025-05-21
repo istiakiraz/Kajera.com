@@ -73,7 +73,7 @@ const Navbar = () => {
           </h1>
         </Link>
 
-        <div className=" mr-96 hidden lg:flex">
+        <div className={`${user ? 'mr-[480px]  hidden lg:flex' : 'mr-96 hidden lg:flex'}`}>
           <ul className="menu flex gap-8 text-xl menu-horizontal px-1">
             {links}
           </ul>
@@ -117,7 +117,7 @@ const Navbar = () => {
               className="btn bg-purple-100 size-12 btn-ghost btn-circle avatar"
             >
               <div className=" rounded-full">
-                <img alt="User Img" src="" />
+                <img alt="User Img" src={user && `${user?.photoURL}`} />
               </div>
             </div>
             <ul

@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import { GoArrowLeft } from "react-icons/go";
 import { Link } from "react-router";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddTask = () => {
   const [dob, setDob] = useState(null);
+
+  const {user} = use(AuthContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +22,7 @@ const AddTask = () => {
     newTask.budget = parseInt(newTask.budget);
     newTask.dob = dob ? format(dob, "yyyy-MM-dd") : "";
     newTask.bid = parseInt(0)
+    newTask.userPhoto = user?.photoURL
     console.log(newTask);
 
     // send task data to the DB
@@ -140,8 +144,8 @@ const AddTask = () => {
                     name="name"
                     type="text"
                     className="input  mb-2 md:w-96"
-                    // value={"Malik"}
-                    //  readOnly
+                    value={user?.displayName}
+                     readOnly
                   />
 
                   {/* email input */}
@@ -151,8 +155,8 @@ const AddTask = () => {
                     name="email"
                     type="text"
                     className="input  mb-2 md:w-96"
-                    // value={"mm@gmail.com"}
-                    //  readOnly
+                    value={user?.email}
+                     readOnly
                   />
 
                   {/* Description input */}
