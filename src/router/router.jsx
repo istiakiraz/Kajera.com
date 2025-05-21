@@ -23,7 +23,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'all-tasks',
-                Component: AllTaskPage
+                Component: AllTaskPage,
+                loader: ()=> fetch('http://localhost:3000/tasks')
             },
             {
                 path: 'task-details',

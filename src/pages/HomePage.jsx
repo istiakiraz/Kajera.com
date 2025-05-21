@@ -4,13 +4,13 @@ import { useLoaderData } from 'react-router';
 
 const HomePage = () => {
 
-    const data = useLoaderData()
-    console.log(data);
+    const taskData = useLoaderData()
+
 
     return (
         <div>
              HomePage
-             <RecentTask></RecentTask>
+             <RecentTask taskData={taskData} ></RecentTask>
         </div>
     );
 };
