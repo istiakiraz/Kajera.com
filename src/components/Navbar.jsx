@@ -57,7 +57,7 @@ const Navbar = () => {
             ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl "
             : " hover:underline"
         }
-        to="/my-tasks"
+        to={`my-tasks/${user?.email}`}
       >
         <li>My Task</li>
       </NavLink>

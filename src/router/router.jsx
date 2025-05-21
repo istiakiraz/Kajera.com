@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         Component: Mainlayouts,
-        errorElement: <p>error</p>,
+        // errorElement: <p>error</p>,
         children: [
             {
                 index: true,
@@ -35,8 +35,9 @@ export const router = createBrowserRouter([
                 loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
             },
             {
-                path: 'my-tasks',
+                path: 'my-tasks/:email',
                 Component: MyTaskPage,
+                loader: ({params})=> fetch(`http://localhost:3000/my-task/${params.email}`)
             },
             {
                 path: 'edit-task',
