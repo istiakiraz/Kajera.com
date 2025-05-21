@@ -32,7 +32,7 @@ const RecentTaskCard = ({ task }) => {
         </div>
 
         <div className=" w-11/12 mx-auto pb-5 ">
-          <Link to={`/tasks/${task._id}`}>
+          <Link to={`/task-details/${task._id}`}>
             <button className="btn col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
               <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative">See Details</span>
