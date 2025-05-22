@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
+import { GoArrowLeft } from "react-icons/go";
 
 const SIgnIn = () => {
   const Toast = Swal.mixin({
@@ -114,7 +115,7 @@ const navigate = useNavigate()
               <Link to="/">
                 <button className="btn col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
               <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-              <span className="relative">Back to Home</span>
+              <span className="relative flex gap-1 items-center"> <GoArrowLeft size={20} />Back to Home</span>
             </button>
               </Link>
 

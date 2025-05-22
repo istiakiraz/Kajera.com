@@ -65,22 +65,16 @@ const navigate = useNavigate()
     //   style={{ backgroundImage: `url(${bg})` }}
     //   className=" bg-cover bg-center  h-[900px]"
     >
-      <div className="md:w-8/12 w-11/12 py-16 mx-auto">
+      <div className="lg:w-9/12 w-11/12 py-16 mx-auto">
         <Link to="/">
-          <span
-            className="flex gap-2 mb-10 rancho text-2xl   items-center"
-            style={{
-              textShadow:
-                "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #331A15, 0 0 3px #331A15",
-            }}
-          >
-            {" "}
-            <GoArrowLeft /> Back to home
-          </span>
-        </Link>
+                <button className="btn mb-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative flex gap-1 items-center"> <GoArrowLeft size={20} />Back to Home</span>
+            </button>
+              </Link>
 
         <div className="bg-[#d6edeb]/50 rounded-xl">
-          <div className="md:w-9/12  md:px-12 w-11/12 py-12 mx-auto">
+          <div className="lg:w-8/12  lg:px-12 w-11/12 py-12 mx-auto">
             <h1
               className="text-center text-4xl mb-4 rancho"
               style={{
@@ -99,17 +93,17 @@ const navigate = useNavigate()
 
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1  md:grid-cols-2"
+              className="grid grid-cols-1 items-start justify-center lg:grid-cols-2"
             >
               <div>
-                <fieldset className="fieldset rounded-box md:w-xs  p-4">
+                <fieldset className="fieldset rounded-box   p-4">
                   {/* title input */}
                   <label className="label font-bold">Task Title</label>
                   <input
                     required
                     name="title"
                     type="text"
-                    className="input  mb-2 md:w-96"
+                    className="input  mb-2 lg:w-96 w-full"
                     placeholder="Enter task title"
                   />
 
@@ -118,7 +112,7 @@ const navigate = useNavigate()
                   <select
                     name="category"
                     required
-                    className="input mb-2 md:w-96"
+                    className="input mb-2 lg:w-96 w-full"
                   >
                     <option value="">Select a category</option>
                     <option value="Web Development"> Web Development</option>
@@ -139,7 +133,7 @@ const navigate = useNavigate()
                     onChange={(date) => setDob(date)}
                     dateFormat="dd/MM/yyyy"
                     placeholderText="Select your task deadline"
-                    className="border border-gray-300 placeholder:text-sm bg-white md:w-96 w-80 px-3 py-2 rounded"
+                    className="border border-gray-300 placeholder:text-sm bg-white lg:w-96 w-full px-3 py-2 rounded"
                   />
 
                    {/* Description input */}
@@ -147,7 +141,7 @@ const navigate = useNavigate()
                   <textarea
                     required
                     name="description"
-                    className="textarea textarea-bordered mb-2 h-28 text-start md:w-96 w-80"
+                    className="textarea textarea-bordered mb-2 h-28 text-start lg:w-96 w-full"
                     placeholder="Enter task description"
                   />
 
@@ -156,7 +150,7 @@ const navigate = useNavigate()
               </div>
 
               <div>
-                <fieldset className="fieldset -space-y-[2px] -mt-5 md:-mt-0 rounded-box md:w-xs  p-4">
+                <fieldset className="fieldset -space-y-[2px] -mt-5 md:-mt-0 rounded-box   p-4">
                   
                   {/* name input */}
                   <label className="label font-bold">Your Name</label>
@@ -164,7 +158,7 @@ const navigate = useNavigate()
                     required
                     name="name"
                     type="text"
-                    className="input  mb-2 md:w-96"
+                    className="input  mb-2 w-full lg:w-96"
                     value={user?.displayName}
                      readOnly
                   />
@@ -175,7 +169,7 @@ const navigate = useNavigate()
                     required
                     name="email"
                     type="text"
-                    className="input  mb-2 md:w-96"
+                    className="input  mb-2 w-full lg:w-96"
                     value={user?.email}
                      readOnly
                   />
@@ -186,7 +180,7 @@ const navigate = useNavigate()
                     type="number"
                     required
                     name="budget"
-                    className="input mb-2 md:w-96"
+                    className="input mb-2 w-full lg:w-96"
                     placeholder="Enter your task budget"
                   />
 
@@ -196,7 +190,7 @@ const navigate = useNavigate()
                     required
                     type="text"
                     name="photo"
-                    className="input mb-2 md:w-96"
+                    className="input mb-2 w-full lg:w-96"
                     placeholder="Enter the URL of your task photo"
                   />
                 </fieldset>
@@ -204,7 +198,7 @@ const navigate = useNavigate()
 
               <button
                 type="submit"
-                className="btn col-span-full flex w-full md:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
+                className="btn col-span-full flex w-full lg:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
               >
                 <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="relative">Add Task</span>

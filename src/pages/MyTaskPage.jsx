@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router";
 import MyTaskCard from "../components/MyTaskCard";
 import { AuthContext } from "../provider/AuthProvider";
 import Empty from "../components/Empty";
+import Error from "../components/Error";
 
 const MyTaskPage = () => {
   const { user } = use(AuthContext);
@@ -16,7 +17,7 @@ const MyTaskPage = () => {
   //   console.log(user?.email);
 
   if (params.email !== user?.email) {
-    return <p>error fcfff this page</p>;
+    return <Error></Error>;
   }
 
   if (myTask.length < 1) {
@@ -24,7 +25,7 @@ const MyTaskPage = () => {
   }
 
   return (
-    <div className="py-10 w-11/12 lg:w-9/12 mx-auto">
+    <div className="py-10 w-11/12  min-h-[calc(100vh-365px)] lg:w-9/12 mx-auto">
       <h1 className="text-center py-8 text-5xl text-pink-800 font-bold">
         my task
       </h1>

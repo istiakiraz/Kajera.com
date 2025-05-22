@@ -2,7 +2,6 @@ import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import Loading from "../components/Loading";
 
 const TaskDetails = () => {
   const Toast = Swal.mixin({
@@ -156,7 +155,6 @@ const TaskDetails = () => {
           </div>
         </div>
       </div>
-      <Loading></Loading>
     </div>
   );
 };

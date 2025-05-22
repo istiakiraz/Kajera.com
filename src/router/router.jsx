@@ -9,12 +9,13 @@ import EditMyTask from "../pages/EditMyTask";
 import SIgnIn from "../pages/SIgnIn";
 import SignUp from "../pages/SignUp";
 import PrivateRoute from "../provider/PrivateRoute";
+import Error from "../components/Error";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         Component: Mainlayouts,
-        // errorElement: <p>error</p>,
+        errorElement: <Error></Error>,
         children: [
             {
                 index: true,

@@ -57,7 +57,7 @@ const Navbar = () => {
         }
         to="/all-tasks"
       >
-        <li>Browse Tasks</li>
+        <li>See-all-Tasks</li>
       </NavLink>
 
       <NavLink
@@ -68,7 +68,7 @@ const Navbar = () => {
         }
         to="/add-task"
       >
-        <li>Add Task</li>
+        <li>Create-Task</li>
       </NavLink>
 
       <NavLink
@@ -79,7 +79,7 @@ const Navbar = () => {
         }
         to={`my-tasks/${user?.email}`}
       >
-        <li>My Task</li>
+        <li>My-Task</li>
       </NavLink>
     </>
   );
