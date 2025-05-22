@@ -2,14 +2,34 @@ import React, { use } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+  const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      },
+    });
+
+
+
+
   const { user, signOutUser } = use(AuthContext);
 
   const handleSignOut = () => {
     signOutUser()
       .then(() => {
-        alert("out");
+       Toast.fire({
+          icon: "success",
+          title: `Sign-Out successfully!`,
+        });;
       })
       .catch((error) => {
         console.log(error);
@@ -135,13 +155,13 @@ const Navbar = () => {
               {user ? (
                 <>
                   <li>
-                    <span className=" text-[12px] mb-[2px] font-bold text-left bg-purple-300 p-2 ">
+                    <span className=" text-[12px] mb-[2px] font-bold text-left bg-[#548b5a]/50 p-2 ">
                       {user && `Name: ${user?.displayName}`}
                     </span>
                   </li>
 
                   <li>
-                    <span className=" text-[12px] mb-[2px] font-bold text-left bg-purple-300 p-2 ">
+                    <span className=" text-[12px] mb-[2px] font-bold text-left bg-[#548b5a]/50 p-2 ">
                       {user && `Email: ${user?.email}`}
                     </span>
                   </li>

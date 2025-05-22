@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
 //   Update user >> user's basic profile information get
 
 const updateUser = (updateData)=>{
-  setLoading(true);
+  // setLoading(true);
     return updateProfile(auth.currentUser, updateData)
 }
 
@@ -48,9 +48,11 @@ const updateUser = (updateData)=>{
       setUser(currentUser);
       setLoading(false);
     });
+
     return () => {
       unSubscribe();
     };
+
   }, []);
 
   const authData = {

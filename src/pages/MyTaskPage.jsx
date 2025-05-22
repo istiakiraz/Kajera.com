@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import MyTaskCard from "../components/MyTaskCard";
 import { AuthContext } from "../provider/AuthProvider";
+import Empty from "../components/Empty";
 
 const MyTaskPage = () => {
   const { user } = use(AuthContext);
@@ -15,11 +16,11 @@ const MyTaskPage = () => {
   //   console.log(user?.email);
 
   if (params.email !== user?.email) {
-    return <p>error this page</p>;
+    return <p>error fcfff this page</p>;
   }
 
   if (myTask.length < 1) {
-    return <p>you have no data </p>;
+    return <Empty></Empty>;
   }
 
   return (
