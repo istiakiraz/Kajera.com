@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import Loading from "../components/Loading";
 
 const TaskDetails = () => {
   const Toast = Swal.mixin({
@@ -19,7 +20,7 @@ const TaskDetails = () => {
   const task = useLoaderData();
   const { user } = use(AuthContext);
 
-  const [bidCount, setBidCount] = useState(task.bid);
+  const [bidCount, setBidCount] = useState(0);
 
   useEffect(() => {
     fetch(`http://localhost:3000/bids/${user?.email}`)
@@ -66,6 +67,7 @@ const TaskDetails = () => {
       .then((res) => res?.json?.())
       .then((data) => {
         if (data.modifiedCount) {
+          setBidCount(bidCount + 1)
           Toast.fire({
             icon: "success",
             title: "Your bid was placed successfully!",
@@ -154,6 +156,7 @@ const TaskDetails = () => {
           </div>
         </div>
       </div>
+      <Loading></Loading>
     </div>
   );
 };

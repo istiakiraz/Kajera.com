@@ -1,12 +1,29 @@
 import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import { GoArrowLeft } from "react-icons/go";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddTask = () => {
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+      });
+
+
+const navigate = useNavigate()
+
   const [dob, setDob] = useState(null);
   const {user} = use(AuthContext)
 
@@ -33,7 +50,11 @@ const AddTask = () => {
       body: JSON.stringify(newTask)
     }).then(res=> res.json()).then(data=> {
       console.log('after add task data ', data);
-      alert('ok')
+      navigate(`/my-tasks/${user.email}`)
+       Toast.fire({
+            icon: "success",
+            title: "Your add new task successfully!",
+          });
     })
 
 
@@ -67,7 +88,7 @@ const AddTask = () => {
                   "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #331A15, 0 0 3px #331A15",
               }}
             >
-              Add New Coffee
+              Add A New Task
             </h1>
             <p className="text-center font-thin mb-8">
               It is a long established fact that a reader will be distraceted by

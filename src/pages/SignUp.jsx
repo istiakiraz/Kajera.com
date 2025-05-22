@@ -28,7 +28,7 @@ const SignUp = () => {
 
 //   const { createUser, setLogIn, updateUser } = use(AuthContext);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -49,9 +49,21 @@ const SignUp = () => {
             }).catch(error=>{
                 console.log(error);
                 setUser(user)
-            })         
+            }) 
+            
+             navigate("/");
+        Swal.fire({
+          title: "Welcome to EajEro.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Let's Get Started",
+        });
         }).catch((error)=>{
             console.log(error.message);
+             Toast.fire({
+          icon: "error",
+          title: `${error.message} 😢`,
+        });
         })
 
     // createUser(email, password)

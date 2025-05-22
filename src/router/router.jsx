@@ -8,6 +8,7 @@ import MyTaskPage from "../pages/MyTaskPage";
 import EditMyTask from "../pages/EditMyTask";
 import SIgnIn from "../pages/SIgnIn";
 import SignUp from "../pages/SignUp";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'add-task',
-                Component: AddTask,
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>,
             },
             {
                 path: 'all-tasks',
@@ -31,17 +32,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'task-details/:id',
-                Component: TaskDetails,
+                element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
             },
             {
                 path: 'my-tasks/:email',
-                Component: MyTaskPage,
+                element: <PrivateRoute><MyTaskPage></MyTaskPage></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:3000/my-task/${params.email}`)
             },
             {
                 path: '/edit-task/:id',
-                Component: EditMyTask,
+                element: <PrivateRoute><EditMyTask></EditMyTask></PrivateRoute>,
                 loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
             }
         ]

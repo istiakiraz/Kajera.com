@@ -27,9 +27,9 @@ const SIgnIn = () => {
 
 //   const { logInUser, googleLogIn, resetPass } = use(AuthContext);
 
-//   const location = useLocation();
+const location = useLocation()
+const navigate = useNavigate()
 
-//   const navigate = useNavigate();
 
   const emailRef = useRef();
 
@@ -39,37 +39,28 @@ const SIgnIn = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(email, password);
+    // console.log(email, password);
 
     signInUser(email, password)
     .then((result)=>{
         console.log(result);
+        navigate(`${location.state? location.state: '/'}`)
+
+         Swal.fire({
+          title: "Welcome to EajEro.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+        
     })
     .catch(error=> {
         console.log(error);
+        Toast.fire({
+          icon: "error",
+          title: "Incorrect email or password",
+        });
     })
-
-
-
-    // logInUser(email, password)
-    //   .then((result) => {
-    //     console.log(result);
-    //     navigate(`${location.state ? location.state : "/"}`);
-
-    //     Swal.fire({
-    //       title: "Welcome to NovaPay!",
-    //       text: "Your smart billing journey starts here. Let's make payments simple and secure.",
-    //       icon: "success",
-    //       confirmButtonText: "Get Started",
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     Toast.fire({
-    //       icon: "error",
-    //       title: "Incorrect email or password",
-    //     });
-    //   });
   };
 
 //   const handleGoogleLogIN = () => {

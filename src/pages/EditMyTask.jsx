@@ -52,7 +52,7 @@ const EditMyTask = () => {
           navigate(`/my-tasks/${taskData.email}`)
           Toast.fire({
   icon: "success",
-  title: "Signed in successfully"
+  title: "Your task update successfully!"
 });
         }
     })
