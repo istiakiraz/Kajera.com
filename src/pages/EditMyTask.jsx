@@ -1,15 +1,30 @@
 import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import { GoArrowLeft } from "react-icons/go";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { format } from "date-fns";
+import Swal from "sweetalert2";
 
 
 const EditMyTask = () => {
-  const [dob, setDob] = useState(null);
-//   const { user } = use(AuthContext);
 
+    const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+
+  const navigate = useNavigate()
+
+
+  const [dob, setDob] = useState(null);
   const taskData = useLoaderData();
 
   const handleUpdataTask = (e) => {
@@ -33,7 +48,13 @@ const EditMyTask = () => {
         },
         body: JSON.stringify(updateTask)
     }).then(res=> res.json()).then(data => {
-        console.log("after update", data);
+        if(data.modifiedCount){
+          navigate(`/my-tasks/${taskData.email}`)
+          Toast.fire({
+  icon: "success",
+  title: "Signed in successfully"
+});
+        }
     })
 
 
