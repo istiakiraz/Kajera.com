@@ -1,12 +1,17 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { use } from 'react';
 import error from '../../public/error.json'
 import { GoArrowLeft } from 'react-icons/go';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Error = () => {
+
+   const {isDark} = use(AuthContext)
+
     return (
-        <div className='min-h-screen flex flex-col  justify-center items-center mx-auto'>
+        <div className={` min-h-screen -mt-18 flex flex-col  justify-center items-center
+         mx-auto ${isDark? 'bg-[#D2D0A0]/80' : '' }`}>
             <Lottie className='w-96 -mt-40 '  animationData={error} />
            <div className='bg-[#2d43a7]/10 p-8 lg:w-6/12 w-11/12 rounded-3xl border border-[#545e8b]/60'>
              <h1 className='md:text-4xl  text-[#2d43a7] text-2xl w-11/12  mx-auto text-center font-medium'>Sorry! Page Not Found</h1>
