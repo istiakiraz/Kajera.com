@@ -1,6 +1,7 @@
 import React from 'react';
 import RecentTask from '../components/RecentTask';
 import { useLoaderData } from 'react-router';
+import Hero from '../components/Hero';
 
 const HomePage = () => {
 
@@ -9,7 +10,7 @@ const HomePage = () => {
 
     return (
         <div>
-             HomePage
+             <Hero></Hero>
              <RecentTask taskData={taskData} ></RecentTask>
         </div>
     );

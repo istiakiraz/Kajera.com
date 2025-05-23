@@ -6,13 +6,13 @@ import { Link } from "react-router";
 const RecentTaskCard = ({ task }) => {
   return (
     <div>
-      <div className="card bg-[#d6edeb]/50 lg:w-96 border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
+      <div className="card bg-[#d6edeb]/50 h-[500px]  w-full border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
         <figure>
-          <img className="size-80 w-full object-cover " src={task.photo} alt={task.title} />
+          <img className="size-52 w-full object-cover " src={task.photo} alt={task.title} />
         </figure>
 
         <div className="flex flex-col w-11/12 mx-auto py-5 space-y-3 ">
-          <span className="text-[#2b492e] p-1 badge justify-start border border-[#5bd397] px-3 bg-[#d6edeb]  rounded-2xl">
+          <span className="text-[#2b492e] p-1 badge justify-start border border-[#5bd397] px-3 bg-[#548b5a]/20  rounded-2xl">
             {task.category}
           </span>
           <h2 className="card-title hover:text-green-700 hover:underline  pb-3 border-gray-200 border-b-1 ">
@@ -24,7 +24,7 @@ const RecentTaskCard = ({ task }) => {
             <FaMoneyCheckDollar color="green" /> Project Budget :{" "}
             <span className="font-bold">৳{task.budget}</span>
           </h4>
-          <h4 className="text-red-500 border flex gap-1 items-center hover:bg-red-200 hover:text-black/80 text-sm border-red-200 bg-white/70 p-1 w-fit px-3 rounded-2xl">
+          <h4 className="text-[#548b5a] border flex gap-1 items-center hover:bg-green-50 hover:text-black/80 text-sm border-[#548b5a] bg-white/70 p-1 w-fit px-3 rounded-2xl">
             {" "}
             <MdOutlineAccessTimeFilled />
             Project Deadline : {task.dob}

@@ -5,7 +5,7 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer className="footer  bg-[#9EBC8A]  p-10">
-      <div className="md:w-10/12 space-y-5 w-11/12 mx-auto footer text-base-content *:text-white sm:footer-horizontal  ">
+      <div className="lg:w-10/12 space-y-5 w-11/12 mx-auto footer text-base-content *:text-white sm:footer-horizontal  ">
         <nav>
           <h6 className="footer-title">Categories</h6>
           <ul className=" *:hover:underline space-y-2">
