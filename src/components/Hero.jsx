@@ -7,6 +7,7 @@ import slide2 from '../assets/slider72.jpg'
 import slide3 from '../assets/slider73.jpg'
 import slide4 from '../assets/h7-bg.jpg'
 import slide5 from '../assets/h7-bg4.jpg'
+import { motion } from 'framer-motion';
 
 import {
   Autoplay,
@@ -35,9 +36,15 @@ const Hero = () => {
           
 
   {/* slide */}
-        <div className="relative">
-            <img className="absolute z-0 -top-20 right-80 h-[450px] w-[600px]" src={slide4} alt="" />
-            <img className="absolute z-5 -bottom-16 left-28 w-full " src={slide5} alt="" />
+        <motion.div
+                            className='relative'
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                        >
+            <img className="absolute hidden lg:block  z-0 -top-20 right-80 h-[450px] w-[600px]" src={slide4} alt="" />
+            <img className="absolute hidden lg:block z-5 -bottom-16  left-28 w-full " src={slide5} alt="" />
             <div className="relative z-10">
           <Swiper
             // install Swiper modules
@@ -63,16 +70,26 @@ const Hero = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        </div>
+        </motion.div>
 
         <div className="relative z-10 text-center lg:text-left ">
             <div>
-              <h1 className="mb-5 md:text-5xl  text-4xl  font-bold">
+              <motion.h1 className="mb-5 md:text-5xl  text-4xl  font-bold"
+              initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                            >
                 Hire the best <span className="text-[#548b5a] bg-amber-100 px-2 ">freelancers</span> for any job, <span className="text-[#548b5a]">online</span>.
-              </h1>
-              <p className="mb-5">
+              </motion.h1>
+              <motion.p className="mb-5"
+              initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+              >
                 Millions of people use <span className="muso font-extrabold">KAJERO</span> to turn their ideas into reality.
-              </p>
+              </motion.p>
               <div className="flex gap-5 lg:gap-10 my-8">
 
                 <div className="text-center text-[#548b5a]">

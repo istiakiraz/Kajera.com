@@ -42,7 +42,7 @@ const navigate = useNavigate()
     console.log(newTask);
 
     // send task data to the DB
-    fetch('http://localhost:3000/tasks',{
+    fetch('https://kajero-server.vercel.app/tasks',{
       method: 'POST',
       headers:{
         "content-type" : "application/json"

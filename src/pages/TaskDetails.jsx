@@ -20,22 +20,18 @@ const TaskDetails = () => {
   const { user } = use(AuthContext);
 
   const [bidCount, setBidCount] = useState(0);
-  const[check, setCheck] = useState('')
+  const [check, setCheck] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bids/${user?.email}`)
+    fetch(`https://kajero-server.vercel.app/bids/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBidCount(data.length);
-        
-        const check = data.map(d=> d.taskId)
-        setCheck(check)
-        
-        
+
+        const check = data.map((d) => d.taskId);
+        setCheck(check);
       });
   }, [user?.email]);
-
-
 
   const handleBid = () => {
     const bidInfo = {
@@ -43,12 +39,8 @@ const TaskDetails = () => {
       taskId: task._id,
     };
 
-    
-
-    
-
     // Step 1: add new bid
-    fetch("http://localhost:3000/bids", {
+    fetch("https://kajero-server.vercel.app/bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -67,7 +59,7 @@ const TaskDetails = () => {
         // Step 2: If bid is new, then increase bid count
         const bidCount = task.bid + 1;
 
-        return fetch(`http://localhost:3000/tasks/${task._id}`, {
+        return fetch(`https://kajero-server.vercel.app/tasks/${task._id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",
@@ -78,7 +70,7 @@ const TaskDetails = () => {
       .then((res) => res?.json?.())
       .then((data) => {
         if (data.modifiedCount) {
-          setBidCount(bidCount + 1)
+          setBidCount(bidCount + 1);
           Toast.fire({
             icon: "success",
             title: "Your bid was placed successfully!",
@@ -93,16 +85,17 @@ const TaskDetails = () => {
 
   return (
     <div className="lg:w-9/12 mx-auto  w-11/12 py-10 ">
-      <div
-        className="bg-[#9EBC8A] lg:mx-15 border ml-auto shadow-[5px_0px_15px_0px_rgba(0,128,0,0.5)] text-sm text-gray-800 border-green-700 rounded-2xl  w-fit px-2 lg:px-4 py-1 "
-      >
+      <div className="bg-[#9EBC8A] lg:mx-15 border ml-auto shadow-[5px_0px_15px_0px_rgba(0,128,0,0.5)] text-sm text-gray-800 border-green-700 rounded-2xl  w-fit px-2 lg:px-4 py-1 ">
         You bid for <span className="font-bold">({bidCount}) </span>{" "}
         opportunities.
       </div>
 
-      <h1 className="text-5xl text-blue-700 font-bold text-center py-8">
-        task details{" "}
+      <h1 className="text-center mt-8 text-4xl mb-4 w-fit mx-auto  bg-[#88af2b]/20 py-2 px-4">
+        Task Details
       </h1>
+      <p className="text-center lg:w-8/12 w-11/12 mx-auto font-medium mb-8">
+              Explore all the information related to this task including the project requirements, deadline, budget, and the person who posted it. Make sure to review everything carefully before placing a bid.
+            </p>
 
       <div className="w-11/12 mx-auto flex lg:flex-row flex-col shadow-[0px_8px_30px_0px_rgba(0,0,0,0.12)] bg-green-300/10 items-center gap-10 justify-between lg:px-10 px-5 py-8 border border-amber-100 rounded-2xl ">
         <img className="w-72 h-full" src={task.photo} alt={task.title} />
@@ -139,28 +132,25 @@ const TaskDetails = () => {
             : <span className="font-semibold text-red-500">{task.dob} </span>
           </h2>
 
-              {check.includes(task._id) ? <>
-               <button
-            className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#784949]  hover:bg-gradient-to-r hover:from-[#784949] hover:to-[#784949] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#784949] transition-all ease-out duration-300  "
-          >
-            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Already Bid Placed</span>
-          </button>
-              
-              </> : <>  <button
-            onClick={handleBid}
-            className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
-          >
-            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Place Bid</span>
-          </button>
-              
-              </>}
-          
-
-         
-
-          
+          {check.includes(task._id) ? (
+            <>
+              <button className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#784949]  hover:bg-gradient-to-r hover:from-[#784949] hover:to-[#784949] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#784949] transition-all ease-out duration-300  ">
+                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative">Already Bid Placed</span>
+              </button>
+            </>
+          ) : (
+            <>
+              {" "}
+              <button
+                onClick={handleBid}
+                className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
+              >
+                <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative">Place Bid</span>
+              </button>
+            </>
+          )}
 
           <div className="text-sm card-actions justify-end">
             <h1 className="font-bold">Assigned By:</h1>

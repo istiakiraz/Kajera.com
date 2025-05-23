@@ -38,7 +38,7 @@ const EditMyTask = () => {
 
     // send update taskData to the DB
 
-    fetch(`http://localhost:3000/tasks/${taskData._id}`, {
+    fetch(`https://kajero-server.vercel.app/tasks/${taskData._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

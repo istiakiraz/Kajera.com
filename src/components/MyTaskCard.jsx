@@ -16,7 +16,7 @@ const MyTaskCard = ({ task, setMyTask, myTask }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Delete task by database
-        fetch(`http://localhost:3000/tasks/${id}`, {
+        fetch(`https://kajero-server.vercel.app/tasks/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: HomePage,
-                loader: () => fetch('http://localhost:3000/tasks/recent')
+                loader: () => fetch('https://kajero-server.vercel.app/tasks/recent')
             },
             {
                 path: 'add-task',
@@ -29,22 +29,22 @@ export const router = createBrowserRouter([
             {
                 path: 'all-tasks',
                 Component: AllTaskPage,
-                loader: ()=> fetch('http://localhost:3000/tasks')
+                loader: ()=> fetch('https://kajero-server.vercel.app/tasks')
             },
             {
                 path: 'task-details/:id',
                 element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
+                loader: ({params})=> fetch(`https://kajero-server.vercel.app/tasks/${params.id}`)
             },
             {
                 path: 'my-tasks/:email',
                 element: <PrivateRoute><MyTaskPage></MyTaskPage></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/my-task/${params.email}`)
+                loader: ({params})=> fetch(`https://kajero-server.vercel.app/my-task/${params.email}`)
             },
             {
                 path: '/edit-task/:id',
                 element: <PrivateRoute><EditMyTask></EditMyTask></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:3000/tasks/${params.id}`)
+                loader: ({params})=> fetch(`https://kajero-server.vercel.app/tasks/${params.id}`)
             }
         ]
     },

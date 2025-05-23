@@ -2,6 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router';
 import AllTasksCard from '../components/AllTasksCard';
 
+
 const AllTaskPage = () => {
 
     const tasksData = useLoaderData()
