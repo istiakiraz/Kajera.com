@@ -48,5 +48,5 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/kajera.com.git
+   git clone https://github.com/istiakiraz/kajera.com.git
    cd kajera.com
