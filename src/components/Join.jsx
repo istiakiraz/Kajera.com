@@ -10,7 +10,7 @@ import { MdArrowOutward } from "react-icons/md";
 const Join = () => {
   return (
     <div className="bg-[#1f4b3f] mb-32">
-      <div className="grid grid-cols-1 lg:gap-20 py-10 lg:grid-cols-2 mx-auto justify-between items-center lg:w-9/12">
+      <div className="grid grid-cols-1 lg:gap-20 gap-15 py-10 lg:grid-cols-2 mx-auto justify-between items-center lg:w-9/12">
         {/* img */}
         <div className="relative">
           <img
