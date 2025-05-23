@@ -26,7 +26,7 @@ const SignUp = () => {
 
   const [showPass, setShowPass] = useState(false);
 
-  const { createUser, setUser, updateUser, googleLogIn } = use(AuthContext);
+  const { createUser, isDark, setUser, updateUser, googleLogIn } = use(AuthContext);
 
   //   const { createUser, setLogIn, updateUser } = use(AuthContext);
 
@@ -108,10 +108,10 @@ const SignUp = () => {
 
 
   return (
-    <div className=" min-h-screen ">
+    <div className={` ${isDark? 'bg-[#D2D0A0]' : '' }`}>
       <div className="hero  min-h-screen">
         <div className="hero-content ">
-          <div className="card bg-base-100 w-full items-center grid lg:grid-cols-2 shrink-0 ">
+          <div className="card lg:px-24 lg:py-12  bg-base-100 w-full items-center grid lg:grid-cols-2 shrink-0 ">
             <div className="order-2">
               <Link to="/">
                 <button className="btn col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
@@ -157,7 +157,7 @@ const SignUp = () => {
 
                 <form
                   onSubmit={handleRegister}
-                  className="flex   flex-col items-center "
+                  className="flex *:text-black   flex-col items-center "
                 >
                   <label className=" self-start lg:ml-14 ml-4 text-gray-600 font-bold ">
                     Your Name
@@ -327,7 +327,7 @@ const SignUp = () => {
                     </span>
                   </button>
                 </form>
-                <p className="text-center mx-auto flex gap-1 mt-2">
+                <p className={` text-center mx-auto flex gap-1 mt-2 ${isDark? 'text-black' : '' }`}>
                   Already have an account?
                   <Link to="/sign-in" className="text-green-700 underline">
                     Sign-In

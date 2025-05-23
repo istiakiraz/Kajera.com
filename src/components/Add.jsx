@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { use } from 'react';
 import addPic from '../assets/add.png';
 import { Link } from 'react-router';
 import { MdArrowOutward } from 'react-icons/md';
 import { motion } from 'framer-motion';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Add = () => {
+
+     const {isDark} = use(AuthContext)
+
+
     return (
-        <div className='bg-[#ffede7] mt-64 md:mt-96 lg:mt-0 h-[386px] '>
+        <div  className={` mt-64 md:mt-96 lg:mt-0 h-[386px]   ${isDark? 'bg-[#D2D0A0]/80' : 'bg-[#ffede7] ' }`}>
             <div className='lg:w-8/12 w-11/12 relative flex-col-reverse mx-auto flex lg:flex-row items-center'>
                 
                 {/* Text animation */}

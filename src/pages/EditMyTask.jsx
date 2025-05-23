@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import DatePicker from "react-datepicker";
 import { GoArrowLeft } from "react-icons/go";
 import { Link, useLoaderData, useNavigate } from "react-router";
 // import { AuthContext } from "../provider/AuthProvider";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const EditMyTask = () => {
   const Toast = Swal.mixin({
@@ -23,6 +24,8 @@ const EditMyTask = () => {
 
   const [dob, setDob] = useState(null);
   const taskData = useLoaderData();
+ const {isDark} = use(AuthContext)
+
 
   const handleUpdataTask = (e) => {
     e.preventDefault();
@@ -59,8 +62,7 @@ const EditMyTask = () => {
 
   return (
     <div
-    //   style={{ backgroundImage: `url(${bg})` }}
-    //   className=" bg-cover bg-center  h-[900px]"
+     className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black ' : '' }`}
     >
       <div className="lg:w-8/12 w-11/12 py-16 mx-auto">
         <Link to="/">

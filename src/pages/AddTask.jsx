@@ -25,7 +25,7 @@ const AddTask = () => {
 const navigate = useNavigate()
 
   const [dob, setDob] = useState(null);
-  const {user} = use(AuthContext)
+  const {user, isDark} = use(AuthContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,8 +62,7 @@ const navigate = useNavigate()
 
   return (
     <div
-    //   style={{ backgroundImage: `url(${bg})` }}
-    //   className=" bg-cover bg-center  h-[900px]"
+   className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black  ' : '' }`}
     >
       <div className="lg:w-9/12 w-11/12 py-16 mx-auto">
         <Link to="/">

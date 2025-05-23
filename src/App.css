@@ -10,3 +10,8 @@ body{
   font-family: "MuseoModerno", sans-serif;
 }
 
+body.dark{
+  background-color: rgb(50, 51, 53);
+  color: white;
+  
+}

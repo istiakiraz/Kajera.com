@@ -3,7 +3,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import demoImg from '../assets/icons8-user-50.png'
+import demoImg from "../assets/icons8-user-50.png";
 
 const Navbar = () => {
   const Toast = Swal.mixin({
@@ -18,7 +18,7 @@ const Navbar = () => {
     },
   });
 
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser, isDark } = use(AuthContext);
 
   console.log(user?.photoURL);
 
@@ -84,7 +84,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar sticky top-0 z-50  *:text-white bg-[#548b5a] shadow-sm">
+    <div className={`navbar sticky top-0 z-50  *:text-white 
+ ${isDark? 'bg-[#3c4d3e]' : 'bg-[#548b5a]' }  shadow-sm`}>
       <div className="md:w-10/12  py-2 w-11/12 flex items-center justify-center mx-auto">
         <Link to="/" className="flex-1">
           <h1 className="muso text-2xl md:text-3xl font-extrabold">
@@ -143,8 +144,6 @@ const Navbar = () => {
                   <img
                     alt="User Img"
                     src={`${user?.photoURL ? user?.photoURL : demoImg}`}
-                   
-                    
                   />
                 </div>
               </div>

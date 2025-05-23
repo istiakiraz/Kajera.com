@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import Error from "../components/Error";
 
 const TaskDetails = () => {
   const Toast = Swal.mixin({
@@ -17,7 +18,7 @@ const TaskDetails = () => {
   });
 
   const task = useLoaderData();
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
 
   const [bidCount, setBidCount] = useState(0);
   const [check, setCheck] = useState("");
@@ -80,11 +81,12 @@ const TaskDetails = () => {
   };
 
   if (!task.name) {
-    return <p>error</p>;
+    return <Error></Error>;
   }
 
   return (
-    <div className="lg:w-9/12 mx-auto  w-11/12 py-10 ">
+    <div  className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
+      <div className="lg:w-9/12 mx-auto  w-11/12 py-10 ">
       <div className="bg-[#9EBC8A] lg:mx-15 border ml-auto shadow-[5px_0px_15px_0px_rgba(0,128,0,0.5)] text-sm text-gray-800 border-green-700 rounded-2xl  w-fit px-2 lg:px-4 py-1 ">
         You bid for <span className="font-bold">({bidCount}) </span>{" "}
         opportunities.
@@ -101,11 +103,11 @@ const TaskDetails = () => {
         <img className="w-72 h-full" src={task.photo} alt={task.title} />
 
         <div className=" mx-auto">
-          <h1 className="text-2xl text-[#537D5D] font-semibold">
+          <h1 className={` text-2xl  font-semibold  ${isDark? 'text-white' : 'text-[#537D5D]' }`} >
             {task.title}
           </h1>
 
-          <h2 className="text-blue-950 lg:w-10/12 py-3  text-left text-sm ">
+          <h2 className={`  lg:w-10/12 py-3  text-left text-sm  ${isDark? 'text-white' : 'text-blue-950' }`}>
             {" "}
             <span className="font-bold">Task Description :</span>{" "}
             {task.description}
@@ -174,6 +176,7 @@ const TaskDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

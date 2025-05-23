@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import joinMain from "../assets/joinmain.png";
 import join1 from "../assets/join1.png";
 import join2 from "../assets/join2.png";
@@ -6,10 +6,16 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 import { MdArrowOutward } from "react-icons/md";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Join = () => {
+
+     const {isDark} = use(AuthContext)
+
+
   return (
-    <div className="bg-[#1f4b3f] mb-32">
+   <div  className={` pb-32  ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
+     <div className="bg-[#1f4b3f]  ">
       <div className="grid grid-cols-1 lg:gap-20 gap-15 py-10 lg:grid-cols-2 mx-auto justify-between items-center lg:w-9/12">
         {/* img */}
         <div className="relative">
@@ -95,6 +101,7 @@ const Join = () => {
         </motion.div>
       </div>
     </div>
+   </div>
   );
 };
 

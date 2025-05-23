@@ -6,7 +6,7 @@ import Empty from "../components/Empty";
 import Error from "../components/Error";
 
 const MyTaskPage = () => {
-  const { user } = use(AuthContext);
+  const { user, isDark } = use(AuthContext);
 
   const initialTask = useLoaderData();
   const params = useParams();
@@ -25,7 +25,8 @@ const MyTaskPage = () => {
   }
 
   return (
-    <div className="py-10 w-11/12  min-h-[calc(100vh-365px)] lg:w-9/12 mx-auto">
+    <div  className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-white'  : '' }`}>
+      <div className="py-10 w-11/12  min-h-[calc(100vh-365px)] lg:w-9/12 mx-auto">
       <div>
          <h1 className='text-4xl  mb-4 font-medium w-fit mx-auto  bg-[#af2b2b]/20 py-2 px-4  '>Manage My Tasks</h1>
         <p className="w-11/12 mx-auto text-center mb-5">Easily manage the tasks you’ve created — view bidders, edit, or remove as needed.</p>
@@ -34,7 +35,7 @@ const MyTaskPage = () => {
 
       <div>
         <div className="w-full overflow-x-auto">
-          <table className="table table-zebra border border-green-700 shadow-2xl shadow-orange-600 ">
+          <table className={` table table-zebra border border-green-700 shadow-2xl shadow-orange-600   ${isDark? 'bg-[#D2D0A0]/60' : '' }`}>
             {/* Table head */}
             <thead className="bg-[#416144dd]/10 text-sm text-[#1f3e2b]">
               <tr>
@@ -59,6 +60,7 @@ const MyTaskPage = () => {
           </table>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { use } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Footer = () => {
+
+   const {isDark} = use(AuthContext)
   return (
-    <footer className="footer  bg-[#9EBC8A]  p-10">
+    <footer  className={` footer    p-10      ${isDark? 'bg-[#73946B]' : 'bg-[#9EBC8A]' }`}>
       <div className="lg:w-10/12 space-y-5 w-11/12 mx-auto footer text-base-content *:text-white sm:footer-horizontal  ">
         <nav>
           <h6 className="footer-title">Categories</h6>

@@ -17,6 +17,14 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true)
 
+
+  const [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem("isDarkMode")));
+
+   if(isDark){  document.body.classList.add('dark');
+  }else{
+     document.body.classList.remove('dark');
+  }
+
   // console.log(user);
 
   // create User set up by firebase
@@ -72,6 +80,9 @@ const updateUser = (updateData)=>{
     googleLogIn,
     updateUser,
     signOutUser,
+    isDark,
+    setIsDark,
+
     
 
   };

@@ -4,8 +4,6 @@ import logo from "../assets/Cream Black Typography Loop Brand Logo (1).png";
 import { Link, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-// import { AuthContext } from "../provider/AuthProvider";
-
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
@@ -13,6 +11,11 @@ import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
 
 const SIgnIn = () => {
+  
+ const {isDark} = use(AuthContext)
+
+
+
   const Toast = Swal.mixin({
     toast: true,
     position: "top-end",
@@ -97,29 +100,12 @@ const navigate = useNavigate()
       });
   };
 
-//   const handleForgotPass = () => {
-//     const email = emailRef.current.value;
-
-//     resetPass(email)
-//       .then(() => {
-//         Toast.fire({
-//           icon: "success",
-//           title: "Your reset email send, Please check your Email",
-//         });
-//       })
-//       .catch((error) => {
-//         Toast.fire({
-//           icon: "error",
-//           title: error,
-//         });
-//       });
-//   };
 
   return (
-    <div className=" min-h-screen ">
+    <div  className={` ${isDark? 'bg-[#D2D0A0]' : '' }`}>
       <div className="hero  min-h-screen">
-        <div className="hero-content ">
-          <div className="card bg-base-100 w-full lg:space-x-32 items-center grid lg:grid-cols-2 shrink-0 ">
+        <div className="hero-content  ">
+          <div className="card lg:px-24 lg:py-12 bg-base-100 w-full lg:space-x-32 items-center grid lg:grid-cols-2 shrink-0 ">
             <div className="lg:order-1 mb-12 lg:mb-0 order-2">
               <Link to="/">
                 <button className="btn col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
@@ -156,7 +142,7 @@ const navigate = useNavigate()
 
                 <form
                   onSubmit={handleLogin}
-                  className="flex flex-col items-center "
+                  className="flex flex-col items-center *:text-black "
                 >
                   <label className=" self-start lg:ml-7 ml-4 text-gray-600 font-bold ">
                     Email
@@ -210,7 +196,7 @@ const navigate = useNavigate()
                     <span className="relative text-white">Sign-In</span>
                   </button>
                 </form>
-                <p className="text-center mx-auto flex gap-1 mt-2">
+                <p  className={` text-center mx-auto flex gap-1 mt-2 ${isDark? 'text-black' : '' }`}>
                   Don’t have an account yet?{" "}
                   <Link to="/sign-up" className="text-green-700 underline">
                     Sign Up

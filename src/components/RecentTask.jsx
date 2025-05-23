@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { use } from 'react';
 import RecentTaskCard from './RecentTaskCard';
 import { Link } from 'react-router';
 import { MdArrowOutward } from 'react-icons/md';
+import { AuthContext } from '../provider/AuthProvider';
 
 const RecentTask = ({taskData}) => {
 
+  const {isDark} = use(AuthContext)
+
     return (
-        <div className='py-20'>
+        <div className={   ` py-20   ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
             <div className='text-left w-11/12 lg:w-10/12 mb-8 ml-auto'>
                 <h1 className=' font-semibold mb-2 text-2xl bg-amber-100 px-2 w-fit lg:text-4xl text-[#548b5a] '>Feature Task</h1>
                 <p className='text-sm lg:w-full w-96'>Freshly posted tasks from real clients — find the perfect match for your talent.</p>
