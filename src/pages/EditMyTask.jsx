@@ -76,15 +76,7 @@ const EditMyTask = () => {
 
         <div className="bg-[#d6edeb]/50 rounded-xl">
           <div className="lg:w-9/12  md:px-12 w-11/12 py-12 mx-auto">
-            <h1
-              className="text-center text-4xl mb-4 rancho"
-              style={{
-                textShadow:
-                  "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #331A15, 0 0 3px #331A15",
-              }}
-            >
-              Update my task
-            </h1>
+          <h1 className='text-4xl font-medium w-fit mx-auto  bg-[#88af2b]/20 py-2 px-4  '>Update Tasks</h1>
 
             <form
               onSubmit={handleUpdataTask}

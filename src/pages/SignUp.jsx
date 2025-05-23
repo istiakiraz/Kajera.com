@@ -10,6 +10,7 @@ import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
 
+
 const SignUp = () => {
   const Toast = Swal.mixin({
     toast: true,
@@ -25,7 +26,7 @@ const SignUp = () => {
 
   const [showPass, setShowPass] = useState(false);
 
-  const { createUser, setUser, updateUser } = use(AuthContext);
+  const { createUser, setUser, updateUser, googleLogIn } = use(AuthContext);
 
   //   const { createUser, setLogIn, updateUser } = use(AuthContext);
 
@@ -39,7 +40,7 @@ const SignUp = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     createUser(email, password)
       .then((result) => {
@@ -67,8 +68,44 @@ const SignUp = () => {
           icon: "error",
           title: `${error.message} 😢`,
         });
-      });
+      });    
   };
+
+   const handleGoogleLogIn = () => {
+          googleLogIn()
+            .then((result) => {
+      
+              const user = result.user;
+
+              console.log(user.photoURL);
+
+
+              updateUser({ displayName: user.displayName, photoURL: user.photoURL})
+                .then(() => {
+                  setUser({ ...user, displayName: user.displayName, photoURL: user.photoURL});
+                })
+                .catch((error) => {
+                  console.log(error);
+                  setUser(user);
+                });
+
+              navigate(`${location.state ? location.state : "/"}`);
+      
+              Swal.fire({
+                title: "Welcome to KAJERO.com!",
+                text: "Let’s turn tasks into success—together.",
+                icon: "success",
+                confirmButtonText: "Get Started",
+              });
+            })
+            .catch((error) => {
+              Toast.fire({
+                icon: "error",
+                title: error,
+              });
+            });
+        };
+
 
   return (
     <div className=" min-h-screen ">
@@ -296,9 +333,10 @@ const SignUp = () => {
                     Sign-In
                   </Link>{" "}
                 </p>
+
                  {/* Google */}
                 <button
-                //   onClick={handleGoogleLogIN}
+                  onClick={handleGoogleLogIn}
                   className="btn bg-white text-black border-[#e5e5e5]"
                 >
                   <svg

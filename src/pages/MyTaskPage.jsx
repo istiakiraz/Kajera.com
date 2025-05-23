@@ -26,9 +26,11 @@ const MyTaskPage = () => {
 
   return (
     <div className="py-10 w-11/12  min-h-[calc(100vh-365px)] lg:w-9/12 mx-auto">
-      <h1 className="text-center py-8 text-5xl text-pink-800 font-bold">
-        my task
-      </h1>
+      <div>
+         <h1 className='text-4xl  mb-4 font-medium w-fit mx-auto  bg-[#af2b2b]/20 py-2 px-4  '>Manage My Tasks</h1>
+        <p className="w-11/12 mx-auto text-center mb-5">Easily manage the tasks you’ve created — view bidders, edit, or remove as needed.</p>
+      </div>
+     
 
       <div>
         <div className="w-full overflow-x-auto">

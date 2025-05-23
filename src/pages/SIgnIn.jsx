@@ -27,7 +27,7 @@ const SIgnIn = () => {
 
   const [showPass, setShowPass] = useState(false);
 
-  const { signInUser } = use(AuthContext)
+  const { signInUser, googleLogIn, setUser, updateUser } = use(AuthContext)
 
 //   const { logInUser, googleLogIn, resetPass } = use(AuthContext);
 
@@ -67,26 +67,35 @@ const navigate = useNavigate()
     })
   };
 
-//   const handleGoogleLogIN = () => {
-//     googleLogIn()
-//       .then((result) => {
-//         console.log(result);
-//         navigate(`${location.state ? location.state : "/"}`);
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((result) => {
 
-//         Swal.fire({
-//           title: "Welcome to NovaPay!",
-//           text: "Your smart billing journey starts here. Let's make payments simple and secure.",
-//           icon: "success",
-//           confirmButtonText: "Get Started",
-//         });
-//       })
-//       .catch((error) => {
-//         Toast.fire({
-//           icon: "error",
-//           title: error,
-//         });
-//       });
-//   };
+        const user = result.user;
+        updateUser({ displayName: user.displayName, photoURL: user.photoURL})
+          .then(() => {
+            setUser({ ...user, displayName: user.displayName, photoURL: user.photoURL});
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
+        navigate(`${location.state ? location.state : "/"}`);
+
+        Swal.fire({
+          title: "Welcome to KAJERO.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          title: error,
+        });
+      });
+  };
 
 //   const handleForgotPass = () => {
 //     const email = emailRef.current.value;
@@ -210,7 +219,7 @@ const navigate = useNavigate()
 
                 {/* Google */}
                 <button
-                //   onClick={handleGoogleLogIN}
+                  onClick={handleGoogleLogIn}
                   className="btn bg-white text-black border-[#e5e5e5]"
                 >
                   <svg

@@ -50,8 +50,7 @@ const Hero = () => {
               delay: 2500,
               disableOnInteraction: false,
             }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
+         
           >
             <SwiperSlide>
               <img src={slide1} alt="" />
@@ -69,15 +68,15 @@ const Hero = () => {
         <div className="relative z-10 text-center lg:text-left ">
             <div>
               <h1 className="mb-5 md:text-5xl  text-4xl  font-bold">
-                Hire the best <span className="text-[#548b5a] ">freelancers</span> for any job, <span className="text-[#548b5a]">online</span>.
+                Hire the best <span className="text-[#548b5a] bg-amber-100 px-2 ">freelancers</span> for any job, <span className="text-[#548b5a]">online</span>.
               </h1>
               <p className="mb-5">
-                Millions of people use Kajero to turn their ideas into reality.
+                Millions of people use <span className="muso font-extrabold">KAJERO</span> to turn their ideas into reality.
               </p>
               <div className="flex gap-5 lg:gap-10 my-8">
 
                 <div className="text-center text-[#548b5a]">
-                  <h1 className="text-2xl mb-1 font-extrabold">
+                  <h1 className="text-xl md:text-2xl mb-1 font-extrabold">
                     <CountUp
                       start={0}
                       end={835}
@@ -91,7 +90,7 @@ const Hero = () => {
                 </div>
 
                 <div className="text-center">
-                  <h1 className="text-2xl mb-1 font-extrabold">
+                  <h1 className="text-xl md:text-2xl mb-1 font-extrabold">
                     <CountUp
                       start={0}
                       end={750}
@@ -105,7 +104,7 @@ const Hero = () => {
                 </div>
 
                 <div className="text-center text-[#548b5a]">
-                  <h1 className="text-2xl mb-1 font-extrabold">
+                  <h1 className="text-xl md:text-2xl mb-1 font-extrabold">
                     <CountUp
                       start={0}
                       end={390}
@@ -118,7 +117,7 @@ const Hero = () => {
                   <p className="text-sm">Order received</p>
                 </div>
                 <div className="text-center">
-                  <h1 className="text-2xl mb-1 font-extrabold">
+                  <h1 className="text-xl md:text-2xl mb-1 font-extrabold">
                     <CountUp
                       start={0}
                       end={195}
@@ -134,7 +133,7 @@ const Hero = () => {
 
               <Link to="/">
                 <button className="btn col-span-full border-none shadow-[5px_0px_15px_0px_rgba(0,128,0,0.5)] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
-                  <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-green-700 opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                  <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                   <span className="relative flex gap-1 items-center">
                     {" "}
                     Join Now

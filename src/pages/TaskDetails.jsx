@@ -20,20 +20,32 @@ const TaskDetails = () => {
   const { user } = use(AuthContext);
 
   const [bidCount, setBidCount] = useState(0);
+  const[check, setCheck] = useState('')
 
   useEffect(() => {
     fetch(`http://localhost:3000/bids/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBidCount(data.length);
+        
+        const check = data.map(d=> d.taskId)
+        setCheck(check)
+        
+        
       });
   }, [user?.email]);
+
+
 
   const handleBid = () => {
     const bidInfo = {
       userEmail: user?.email,
       taskId: task._id,
     };
+
+    
+
+    
 
     // Step 1: add new bid
     fetch("http://localhost:3000/bids", {
@@ -126,13 +138,30 @@ const TaskDetails = () => {
             </span>{" "}
             : <span className="font-semibold text-red-500">{task.dob} </span>
           </h2>
-          <button
+
+              {check.includes(task._id) ? <>
+               <button
+            className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#784949]  hover:bg-gradient-to-r hover:from-[#784949] hover:to-[#784949] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#784949] transition-all ease-out duration-300  "
+          >
+            <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+            <span className="relative">Already Bid Placed</span>
+          </button>
+              
+              </> : <>  <button
             onClick={handleBid}
             className="btn my-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
           >
             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Bid Task</span>
+            <span className="relative">Place Bid</span>
           </button>
+              
+              </>}
+          
+
+         
+
+          
+
           <div className="text-sm card-actions justify-end">
             <h1 className="font-bold">Assigned By:</h1>
             <div>

@@ -76,19 +76,12 @@ const navigate = useNavigate()
         <div className="bg-[#d6edeb]/50 rounded-xl">
           <div className="lg:w-8/12  lg:px-12 w-11/12 py-12 mx-auto">
             <h1
-              className="text-center text-4xl mb-4 rancho"
-              style={{
-                textShadow:
-                  "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #331A15, 0 0 3px #331A15",
-              }}
+              className="text-center text-4xl mb-4 w-fit mx-auto  bg-[#88af2b]/20 py-2 px-4"
             >
-              Add A New Task
+             Get It Done – Add Your Task
             </h1>
-            <p className="text-center font-thin mb-8">
-              It is a long established fact that a reader will be distraceted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using Content here.
+            <p className="text-center font-medium mb-8">
+              Describe your task, set your budget and deadline, and receive bids from talented freelancers in minutes. Save time by outsourcing your work to trusted freelancers. Post your task today and get it done faster! Don’t do it all yourself. Add a task and hire the right person to get it done.
             </p>
 
             <form
@@ -200,7 +193,7 @@ const navigate = useNavigate()
                 type="submit"
                 className="btn col-span-full flex w-full lg:w-[845px] relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  "
               >
-                <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="absolute right-0 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-50 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="relative">Add Task</span>
               </button>
             </form>
