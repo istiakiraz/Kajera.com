@@ -25,7 +25,7 @@ const MyTaskPage = () => {
   }
 
   return (
-    <div  className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-white'  : '' }`}>
+    <div  className={` -mt-18 pt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-white'  : '' }`}>
       <div className="py-10 w-11/12  min-h-[calc(100vh-365px)] lg:w-9/12 mx-auto">
       <div>
          <h1 className='text-4xl  mb-4 font-medium w-fit mx-auto  bg-[#af2b2b]/20 py-2 px-4  '>Manage My Tasks</h1>

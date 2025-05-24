@@ -14,7 +14,7 @@ const Join = () => {
 
 
   return (
-   <div  className={` pb-32  ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
+   <div  className={` pb-32  ${isDark? 'bg-[#52524a]' : '' }`}>
      <div className="bg-[#1f4b3f]  ">
       <div className="grid grid-cols-1 lg:gap-20 gap-15 py-10 lg:grid-cols-2 mx-auto justify-between items-center lg:w-9/12">
         {/* img */}

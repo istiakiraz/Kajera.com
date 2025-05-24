@@ -33,9 +33,9 @@ const Hero = () => {
 
 
   return (
-    <div className={`${isDark? 'bg-[#D2D0A0]/80' : '' }`} >
+    <div className={`  ${isDark? 'bg-[#D2D0A0]/80' : '' }`} >
 
-       <div className=" mx-auto -mt-16 py-12 w-11/12">
+       <div className=" mx-auto pt-18 -mt-16 py-12 w-11/12">
       <div className="md:w-9/12 lg:gap-x-52  lg:py-28 space-y-10 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center ">
         {/* slide */}
         <motion.div

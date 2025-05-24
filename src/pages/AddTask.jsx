@@ -62,7 +62,7 @@ const navigate = useNavigate()
 
   return (
     <div
-   className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black  ' : '' }`}
+   className={` pt-18 -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black  ' : '' }`}
     >
       <div className="lg:w-9/12 w-11/12 py-16 mx-auto">
         <Link to="/">
@@ -85,7 +85,7 @@ const navigate = useNavigate()
 
             <form
               onSubmit={handleSubmit}
-              className="grid grid-cols-1 items-start justify-center lg:grid-cols-2"
+              className="grid grid-cols-1 items-start justify-center lg:gap-10 lg:grid-cols-2"
             >
               <div>
                 <fieldset className="fieldset rounded-box   p-4">

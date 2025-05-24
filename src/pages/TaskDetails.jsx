@@ -85,7 +85,7 @@ const TaskDetails = () => {
   }
 
   return (
-    <div  className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
+    <div  className={` pt-18 -mt-18 ${isDark? 'bg-[#D2D0A0]/20' : '' }`}>
       <div className="lg:w-9/12 mx-auto  w-11/12 py-10 ">
       <div className="bg-[#9EBC8A] lg:mx-15 border ml-auto shadow-[5px_0px_15px_0px_rgba(0,128,0,0.5)] text-sm text-gray-800 border-green-700 rounded-2xl  w-fit px-2 lg:px-4 py-1 ">
         You bid for <span className="font-bold">({bidCount}) </span>{" "}

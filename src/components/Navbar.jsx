@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import demoImg from "../assets/icons8-user-50.png";
-import { Tooltip } from 'react-tooltip';
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const Toast = Swal.mixin({
@@ -85,8 +85,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className={`navbar sticky top-0 z-50  *:text-white 
- ${isDark? 'bg-[#3c4d3e]' : 'bg-[#548b5a]' }  shadow-sm`}>
+    <div
+      className={`navbar sticky top-0 z-50  *:text-white 
+ ${isDark ? "bg-[#3c4d3e]" : "bg-[#548b5a]"}  shadow-sm`}
+    >
       <div className="md:w-10/12  py-2 w-11/12 flex items-center justify-center mx-auto">
         <Link to="/" className="flex-1">
           <h1 className="muso text-2xl md:text-3xl font-extrabold">
@@ -136,24 +138,24 @@ const Navbar = () => {
 
           {user ? (
             <div className="dropdown dropdown-end">
-            <a
-  data-tooltip-id="my-tooltip"
-  data-tooltip-content={user?.displayName}
-  data-tooltip-place="top"
->
-    <div
-                tabIndex={0}
-                role="button"
-                className="btn bg-purple-100 size-12 btn-ghost btn-circle avatar"
+              <a
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content={user?.displayName}
+                data-tooltip-place="top"
               >
-                <div className=" rounded-full">
-                  <img
-                    alt="User Img"
-                    src={`${user?.photoURL ? user?.photoURL : demoImg}`}
-                  />
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn bg-purple-100 size-12 btn-ghost btn-circle avatar"
+                >
+                  <div className=" rounded-full">
+                    <img
+                      alt="User Img"
+                      src={`${user?.photoURL ? user?.photoURL : demoImg}`}
+                    />
+                  </div>
                 </div>
-              </div>
-</a>
+              </a>
               <ul
                 tabIndex={0}
                 className="menu menu-sm text-black dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -161,7 +163,7 @@ const Navbar = () => {
                 <div
                   className="
         flex flex-col *:p-1 *:hover:bg-gray-100 mb-2 pl-2
-        md:hidden"
+        lg:hidden"
                 >
                   {links}
                 </div>

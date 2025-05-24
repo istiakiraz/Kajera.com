@@ -62,16 +62,16 @@ const EditMyTask = () => {
 
   return (
     <div
-     className={` -mt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black ' : '' }`}
+     className={` -mt-18 pt-18 ${isDark? 'bg-[#D2D0A0]/20 *:text-black ' : '' }`}
     >
       <div className="lg:w-8/12 w-11/12 py-16 mx-auto">
-        <Link to="/">
+        <Link to={`/my-tasks/${taskData.email}`}>
           <button className="btn mb-5 col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
             <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
             <span className="relative flex gap-1 items-center">
               {" "}
               <GoArrowLeft size={20} />
-              Back to Home
+              Back to My-Task
             </span>
           </button>
         </Link>
@@ -82,7 +82,7 @@ const EditMyTask = () => {
 
             <form
               onSubmit={handleUpdataTask}
-              className="grid grid-cols-1 items-start lg:grid-cols-2"
+              className="grid grid-cols-1 lg:gap-10 items-start lg:grid-cols-2"
             >
               <div>
                 <fieldset className="fieldset rounded-box lg:w-xs  p-4">

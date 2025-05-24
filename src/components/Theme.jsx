@@ -19,7 +19,7 @@ const Theme = () => {
   return (
     <div
       onClick={handleDark}
-      className="w-11/12 pt-4 h-fit  -pb-5 flex justify-end items-end"
+      className=" w-fit  ml-auto lg:pr-40 pr-5 -pb-5 flex justify-end items-end"
     >
 <a
   data-tooltip-id="my-tooltip"
