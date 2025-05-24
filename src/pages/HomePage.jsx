@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router';
 import Hero from '../components/Hero';
 import Add from '../components/Add';
 import Join from '../components/Join';
+import AddTwo from '../components/AddTwo';
 
 const HomePage = () => {
 
@@ -14,7 +15,8 @@ const HomePage = () => {
         <div>
              <Hero></Hero>
              <RecentTask taskData={taskData} ></RecentTask>
-             <Join></Join>
+             <AddTwo></AddTwo>
+             <Join></Join>             
              <Add></Add>
         </div>
     );
