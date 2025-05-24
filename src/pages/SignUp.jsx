@@ -10,7 +10,6 @@ import { Typewriter } from "react-simple-typewriter";
 import Lottie from "lottie-react";
 import { GoArrowLeft } from "react-icons/go";
 
-
 const SignUp = () => {
   const Toast = Swal.mixin({
     toast: true,
@@ -26,7 +25,8 @@ const SignUp = () => {
 
   const [showPass, setShowPass] = useState(false);
 
-  const { createUser, isDark, setUser, updateUser, googleLogIn } = use(AuthContext);
+  const { createUser, isDark, setUser, updateUser, googleLogIn } =
+    use(AuthContext);
 
   //   const { createUser, setLogIn, updateUser } = use(AuthContext);
 
@@ -63,52 +63,53 @@ const SignUp = () => {
         });
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
         Toast.fire({
           icon: "error",
           title: `${error.message} 😢`,
         });
-      });    
+      });
   };
 
-   const handleGoogleLogIn = () => {
-          googleLogIn()
-            .then((result) => {
-      
-              const user = result.user;
+  const handleGoogleLogIn = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
 
-              console.log(user.photoURL);
+        // console.log(user.photoURL);
 
-
-              updateUser({ displayName: user.displayName, photoURL: user.photoURL})
-                .then(() => {
-                  setUser({ ...user, displayName: user.displayName, photoURL: user.photoURL});
-                })
-                .catch((error) => {
-                  console.log(error);
-                  setUser(user);
-                });
-
-              navigate(`${location.state ? location.state : "/"}`);
-      
-              Swal.fire({
-                title: "Welcome to KAJERO.com!",
-                text: "Let’s turn tasks into success—together.",
-                icon: "success",
-                confirmButtonText: "Get Started",
-              });
-            })
-            .catch((error) => {
-              Toast.fire({
-                icon: "error",
-                title: error,
-              });
+        updateUser({ displayName: user.displayName, photoURL: user.photoURL })
+          .then(() => {
+            setUser({
+              ...user,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
             });
-        };
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
 
+        navigate(`${location.state ? location.state : "/"}`);
+
+        Swal.fire({
+          title: "Welcome to KAJERO.com!",
+          text: "Let’s turn tasks into success—together.",
+          icon: "success",
+          confirmButtonText: "Get Started",
+        });
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: "error",
+          title: error,
+        });
+      });
+  };
 
   return (
-    <div className={` ${isDark? 'bg-[#D2D0A0]' : '' }`}>
+    <div className={` ${isDark ? "bg-[#D2D0A0]" : ""}`}>
       <div className="hero  min-h-screen">
         <div className="hero-content ">
           <div className="card lg:px-24 lg:py-12  bg-base-100 w-full items-center grid lg:grid-cols-2 shrink-0 ">
@@ -116,11 +117,18 @@ const SignUp = () => {
               <Link to="/">
                 <button className="btn col-span-full relative rounded px-5 py-2.5 overflow-hidden group bg-[#49785b]  hover:bg-gradient-to-r hover:from-[#49785b] hover:to-[#49785b] text-white hover:ring-2 hover:ring-offset-2 hover:ring-[#49785b] transition-all ease-out duration-300  ">
                   <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                  <span className="relative flex gap-1 items-center"> <GoArrowLeft size={20} />Back to Home</span>
+                  <span className="relative flex gap-1 items-center">
+                    {" "}
+                    <GoArrowLeft size={20} />
+                    Back to Home
+                  </span>
                 </button>
               </Link>
 
-              <div className="lg:mt-12 -mt-7 "> <Lottie  animationData={logImg} /></div>
+              <div className="lg:mt-12 -mt-7 ">
+                {" "}
+                <Lottie animationData={logImg} />
+              </div>
             </div>
 
             <div className=" order-1 ">
@@ -159,7 +167,7 @@ const SignUp = () => {
                   onSubmit={handleRegister}
                   className="flex *:text-black   flex-col items-center "
                 >
-                  <label className=" self-start lg:ml-14 ml-4 text-gray-600 font-bold ">
+                  <label className=" self-start ml-4 text-gray-600 font-bold ">
                     Your Name
                   </label>
                   <input
@@ -174,7 +182,7 @@ const SignUp = () => {
                     Name should be more then 4 character
                   </p>
 
-                  <label className=" self-start lg:ml-14 ml-4 text-gray-600 font-bold ">
+                  <label className=" self-start  ml-4 text-gray-600 font-bold ">
                     Photo URL
                   </label>
                   <input
@@ -185,7 +193,7 @@ const SignUp = () => {
                     required
                   />
 
-                  <label className=" self-start lg:ml-14 ml-4 text-gray-600 font-bold ">
+                  <label className=" self-start ml-4 text-gray-600 font-bold ">
                     Email
                   </label>
                   <input
@@ -196,7 +204,7 @@ const SignUp = () => {
                     required
                   />
 
-                  <label className="self-start lg:ml-14 ml-4 text-gray-600 font-bold ">
+                  <label className="self-start  ml-4 text-gray-600 font-bold ">
                     Password
                   </label>
                   <div className="relative  lg:w-96 w-full mx-auto">
@@ -327,14 +335,18 @@ const SignUp = () => {
                     </span>
                   </button>
                 </form>
-                <p className={` text-center mx-auto flex gap-1 mt-2 ${isDark? 'text-black' : '' }`}>
+                <p
+                  className={` text-center mx-auto flex gap-1 mt-2 ${
+                    isDark ? "text-black" : ""
+                  }`}
+                >
                   Already have an account?
                   <Link to="/sign-in" className="text-green-700 underline">
                     Sign-In
                   </Link>{" "}
                 </p>
 
-                 {/* Google */}
+                {/* Google */}
                 <button
                   onClick={handleGoogleLogIn}
                   className="btn bg-white text-black border-[#e5e5e5]"

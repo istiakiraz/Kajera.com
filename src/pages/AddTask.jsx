@@ -39,7 +39,7 @@ const navigate = useNavigate()
     newTask.dob = dob ? format(dob, "yyyy-MM-dd") : "";
     newTask.bid = parseInt(0)
     newTask.userPhoto = user?.photoURL
-    console.log(newTask);
+    // console.log(newTask);
 
     // send task data to the DB
     fetch('https://kajero-server.vercel.app/tasks',{

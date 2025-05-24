@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAhIqNlttHbm5cMSBw8E-8BLCifZln26c0",
-  authDomain: "kajero-auth.firebaseapp.com",
-  projectId: "kajero-auth",
-  storageBucket: "kajero-auth.firebasestorage.app",
-  messagingSenderId: "466774998039",
-  appId: "1:466774998039:web:fdb2a0aeb8225de377b052"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

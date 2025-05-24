@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 import demoImg from "../assets/icons8-user-50.png";
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
   const Toast = Swal.mixin({
@@ -20,7 +21,7 @@ const Navbar = () => {
 
   const { user, signOutUser, isDark } = use(AuthContext);
 
-  console.log(user?.photoURL);
+  // console.log(user?.photoURL);
 
   const handleSignOut = () => {
     signOutUser()
@@ -135,7 +136,12 @@ const Navbar = () => {
 
           {user ? (
             <div className="dropdown dropdown-end">
-              <div
+            <a
+  data-tooltip-id="my-tooltip"
+  data-tooltip-content={user?.displayName}
+  data-tooltip-place="top"
+>
+    <div
                 tabIndex={0}
                 role="button"
                 className="btn bg-purple-100 size-12 btn-ghost btn-circle avatar"
@@ -147,6 +153,7 @@ const Navbar = () => {
                   />
                 </div>
               </div>
+</a>
               <ul
                 tabIndex={0}
                 className="menu menu-sm text-black dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"

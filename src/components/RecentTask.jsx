@@ -19,7 +19,7 @@ const RecentTask = ({taskData}) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  w-11/12 lg:w-9/12 mx-auto gap-5">
                 {
-                    taskData.map(task=> <RecentTaskCard key={task._id} task={task} ></RecentTaskCard> )
+                    taskData?.map(task=> <RecentTaskCard key={task._id} task={task} ></RecentTaskCard> )
                 }
             </div>
 

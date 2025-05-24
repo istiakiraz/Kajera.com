@@ -37,7 +37,7 @@ const EditMyTask = () => {
     updateTask.budget = parseInt(updateTask.budget);
     updateTask.dob = dob ? format(dob, "yyyy-MM-dd") : "";
 
-    console.log(updateTask);
+    // console.log(updateTask);
 
     // send update taskData to the DB
 
