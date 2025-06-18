@@ -1,0 +1,18 @@
+/* index.css বা global.css */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #ce0000; /* scrollbar background */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* scrollbar handle */
+  border-radius: 6px;
+  border: 2px solid #1e1e1e; /* for spacing effect */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #6c8bb7;
+}

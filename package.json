@@ -25,6 +25,7 @@
     "react-tooltip": "^5.28.1",
     "sweetalert2": "^11.21.2",
     "swiper": "^11.2.7",
+    "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
