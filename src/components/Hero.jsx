@@ -84,7 +84,7 @@ const Hero = () => {
         <div className="relative z-10 text-center lg:text-left ">
           <div>
             <motion.h1
-              className="mb-5 md:text-5xl  text-4xl  font-bold"
+              className="mb-5 md:text-5xl lg:text-7xl lg:leading-22 text-4xl  font-bold"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
