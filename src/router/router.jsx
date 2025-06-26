@@ -11,6 +11,7 @@ import SignUp from "../pages/SignUp";
 import PrivateRoute from "../provider/PrivateRoute";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
+import AboutUs from "../pages/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><EditMyTask></EditMyTask></PrivateRoute>,
                 loader: ({params})=> fetch(`https://kajero-server.vercel.app/tasks/${params.id}`),
                  hydrateFallbackElement: <Loading></Loading>,
+            },
+            {
+                path: 'about',
+                Component: AboutUs
             }
         ]
     },

@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const AllTasksCard = ({task}) => {
     return (
          <div>
-      <div className="card bg-blue-200/10 h-[641px]  w-full border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
+      <div className="card bg-blue-200/10 h-[600px]  w-full border transition-all duration-300 hover:scale-95 border-[#2b492e]/10 shadow-sm">
         <figure>
           <img className="size-80 w-full object-cover" src={task.photo} alt={task.title} />
         </figure>
@@ -20,7 +20,7 @@ const AllTasksCard = ({task}) => {
           </h2>
 
           <h4 className="flex gap-1 px-3 items-center"> <FaMoneyCheckDollar color="green" /> Project Budget : <span className='font-bold' >৳{task.budget}</span></h4>
-          <h4 className="text-[#495c78] border flex gap-1 items-center hover:bg-blue-200 hover:text-black/80 text-sm border-blue-200 bg-white/70 p-1 w-fit px-3 rounded-2xl"> <MdOutlineAccessTimeFilled />Project Deadline : {task.dob}</h4>
+          {/* <h4 className="text-[#495c78] border flex gap-1 items-center hover:bg-blue-200 hover:text-black/80 text-sm border-blue-200 bg-white/70 p-1 w-fit px-3 rounded-2xl"> <MdOutlineAccessTimeFilled />Project Deadline : {task.dob}</h4> */}
           
         </div>
         

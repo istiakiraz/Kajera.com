@@ -24,11 +24,11 @@ const RecentTaskCard = ({ task }) => {
             <FaMoneyCheckDollar color="green" /> Project Budget :{" "}
             <span className="font-bold">৳{task.budget}</span>
           </h4>
-          <h4 className="text-[#548b5a] border flex gap-1 items-center hover:bg-green-50 hover:text-black/80 text-sm border-[#548b5a] bg-white/70 p-1 w-fit px-3 rounded-2xl">
+          {/* <h4 className="text-[#548b5a] border flex gap-1 items-center hover:bg-green-50 hover:text-black/80 text-sm border-[#548b5a] bg-white/70 p-1 w-fit px-3 rounded-2xl">
             {" "}
             <MdOutlineAccessTimeFilled />
             Project Deadline : {task.dob}
-          </h4>
+          </h4> */}
         </div>
 
         <div className=" w-11/12 mx-auto pb-5 ">

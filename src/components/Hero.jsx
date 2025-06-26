@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import { Link } from "react-router";
 
 import slide1 from "../assets/slider71.png";
@@ -33,7 +33,7 @@ const Hero = () => {
 
 
   return (
-    <div className={`  ${isDark? 'bg-[#D2D0A0]/80' : '' }`} >
+    <div className={`  ${isDark? 'bg-[#323335]/80' : '' }`} >
 
        <div className=" mx-auto pt-18 -mt-16 py-12 w-11/12">
       <div className="md:w-9/12 lg:gap-x-52  lg:py-28 space-y-10 mx-auto grid grid-cols-1 lg:grid-cols-2 items-center ">
@@ -107,7 +107,8 @@ const Hero = () => {
               <span className="muso font-extrabold">KAJERO</span> to turn their
               ideas into reality.
             </motion.p>
-            <div className="flex gap-5 lg:gap-10 my-8">
+
+            {/* <div className="flex gap-5 lg:gap-10 my-8">
               <div className="text-center text-[#548b5a]">
                 <h1 className="text-xl md:text-2xl mb-1 font-extrabold">
                   <CountUp
@@ -162,7 +163,7 @@ const Hero = () => {
                 </h1>
                 <p className="text-sm">Projects Completed</p>
               </div>
-            </div>
+            </div> */}
 
           {
             user?   <Link to="/all-tasks">

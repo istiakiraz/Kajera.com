@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import Add from '../components/Add';
 import Join from '../components/Join';
 import AddTwo from '../components/AddTwo';
+import Countup from '../components/Countup';
 
 const HomePage = () => {
 
@@ -14,6 +15,7 @@ const HomePage = () => {
     return (
         <div>
              <Hero></Hero>
+             <Countup></Countup>
              <RecentTask taskData={taskData} ></RecentTask>
              <AddTwo></AddTwo>
              <Join></Join>             

@@ -60,7 +60,8 @@ const Navbar = () => {
         <li>See-all-Tasks</li>
       </NavLink>
 
-      <NavLink
+     {
+      user &&  <NavLink
         className={({ isActive }) =>
           isActive
             ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl "
@@ -70,8 +71,10 @@ const Navbar = () => {
       >
         <li>Create-Task</li>
       </NavLink>
+     }
 
-      <NavLink
+    {
+      user &&   <NavLink
         className={({ isActive }) =>
           isActive
             ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl "
@@ -81,6 +84,18 @@ const Navbar = () => {
       >
         <li>My-Task</li>
       </NavLink>
+    }
+
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? " bg-[#E1EEBC]/20 px-3 border border-[#E1EEBC] rounded-2xl "
+            : " hover:underline"
+        }
+        to="/about"
+      >
+        <li>About-Us</li>
+      </NavLink>
     </>
   );
 
@@ -89,7 +104,7 @@ const Navbar = () => {
       className={`navbar sticky top-0 z-50  *:text-white 
  ${isDark ? "bg-[#3c4d3e]" : "bg-[#548b5a]"}  shadow-sm`}
     >
-      <div className="md:w-10/12  py-2 w-11/12 flex items-center justify-center mx-auto">
+      <div className="md:w-10/12 lg:w-9/12  py-2 w-11/12 flex items-center justify-center mx-auto">
         <Link to="/" className="flex-1">
           <h1 className="muso text-2xl md:text-3xl font-extrabold">
             KAJERO. <span className="md:text-2xl text-xl">com</span>
@@ -98,10 +113,10 @@ const Navbar = () => {
 
         <div
           className={`${
-            user ? "mr-[480px]  hidden lg:flex" : "mr-96 hidden lg:flex"
+            user ? "mr-[480px]  hidden lg:flex" : "mr-[485px] hidden lg:flex"
           }`}
         >
-          <ul className="menu flex gap-8 text-xl menu-horizontal px-1">
+          <ul className="menu -mr-32 flex gap-8 text-xl menu-horizontal px-1">
             {links}
           </ul>
         </div>

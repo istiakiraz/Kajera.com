@@ -10,8 +10,8 @@ const AddTwo = () => {
   const { isDark } = use(AuthContext);
 
   return (
-    <div className={` py-16 pb-40 ${isDark ? "bg-[#52524a]" : ""}`}>
-      <div className="lg:w-11/12 flex lg:flex-row flex-col justify-end items-center mx-auto bg-[#fbf7ed]">
+    <div className={` py-16 pb-40 ${isDark ? "bg-[#323335]/80" : ""}`}>
+      <div className="lg:w-10/12 flex lg:flex-row flex-col justify-end items-center mx-auto bg-[#fbf7ed]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
