@@ -53,7 +53,7 @@ const RecentTaskCard = ({ task }) => {
                 </div> : <h1>{task.name}</h1>
               }
 
-              <h1 className="text-gray-400 text-[13px]">{task.email}</h1>
+              <h1 className="text-gray-800 text-[13px]">{task.email}</h1>
             </div>
           </div>
         </div>

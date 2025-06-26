@@ -88,7 +88,7 @@ const AllTaskPage = () => {
                 {/* Filter Dropdown */}
                 <div className='mt-6 flex justify-center  items-center gap-4 flex-wrap'>
                     <select
-                        className='px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring focus:border-blue-400'
+                        className='px-4 py-2 rounded-md border bg-[#689e6d]/40 border-gray-300 focus:outline-none focus:ring focus:border-green-400'
                         value={selectedCategory}
                         onChange={handleCategoryChange}
                     >
